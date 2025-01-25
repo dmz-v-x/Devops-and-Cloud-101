@@ -6,7 +6,7 @@ To ensure consistency and readability across this repository, please follow the 
 
 - **Write clear and concise content**. Tutorials should be easy to follow, and code should be simple and efficient.
 - **Be specific** in your explanations. When writing about AWS services or DevOps tools, provide detailed steps, commands, and examples.
-- Use **descriptive filenames** (e.g., `linux_basics.md`, `docker_setup.md`, `aws_vpc.md`).
+- Use **descriptive filenames** (e.g., `linux-basics.md`, `docker-setup.md`, `aws-vpc.md`).
 - Always use **markdown** for writing tutorials and documentation files.
 
 ## Naming Conventions
