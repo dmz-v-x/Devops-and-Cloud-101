@@ -7,7 +7,7 @@
 - [Introduction to Pipes](#introduction-to-pipes)
   - [Common Use Cases:](#common-use-cases)
   - [Advanced Pipe Usage:](#advanced-pipe-usage)
-    - [Important Considerations:](#important-considerations)
+  - [Important Considerations:](#important-considerations)
   - [Summary of Key Points:](#summary-of-key-points)
 - [Introduction to Grep](#introduction-to-grep)
   - [Common Use Cases of grep:](#common-use-cases-of-grep)
