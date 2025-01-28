@@ -1,14 +1,7 @@
 # Understanding Environment Variables and Bash Configuration Files in Linux
 
----
-
-## Table of Contents
-
 # Table of Contents
 
-- [Understanding Environment Variables and Bash Configuration Files in Linux](#understanding-environment-variables-and-bash-configuration-files-in-linux)
-  - [Table of Contents](#table-of-contents)
-- [Table of Contents](#table-of-contents-1)
   - [Introduction to Environment Variables](#introduction-to-environment-variables)
     - [What are Environment Variables?](#what-are-environment-variables)
     - [Why are Environment Variables Important?](#why-are-environment-variables-important)
@@ -49,7 +42,7 @@
       - [2. `~/.bash_profile` (or `~/.profile`)](#2-bash_profile-or-profile)
       - [3. `~/.bashrc`](#3-bashrc)
       - [4. `etc/bash.bashrc`](#4-etcbashbashrc)
-      - [5. ~/.bash\_logout](#5-bash_logout)
+      - [5. `~/.bash_logout`](#5-bash_logout)
     - [Summary of Bash Configuration Files:](#summary-of-bash-configuration-files)
       - [Summary of Common Bash Configuration Files](#summary-of-common-bash-configuration-files)
   - [Understanding the `.bashrc` File](#understanding-the-bashrc-file)
@@ -75,54 +68,37 @@
     - [Adding Aliases](#adding-aliases)
       - [Aliases](#aliases)
       - [Example of Adding Aliases:](#example-of-adding-aliases)
-5. [Global vs User-Specific Configuration Files](#global-vs-user-specific-configuration-files)
-   - [`/etc/profile` and `/etc/bashrc`](#etcprofile-and-etcbashrc)
-     - [`/etc/profile`](#etcprofile)
-     - [`/etc/bashrc`](#etcbashrc)
-   - [How Global Configuration Differs from User-Specific Files](#how-global-configuration-differs-from-user-specific-files)
-   - [When to Use Global vs User-Specific Configurations](#when-to-use-global-vs-user-specific-configurations)
-     - [When to Use Global Configurations:](#when-to-use-global-configurations)
-     - [When to Use User-Specific Configurations:](#when-to-use-user-specific-configurations)
-   - [Summary](#summary)
-6. [Introduction to Bash Configuration Files](#introduction-to-bash-configuration-files)
-   - [Purpose of Bash Configuration Files](#purpose-of-bash-configuration-files)
-   - [When Do Bash Configuration Files Come Into Picture?](#when-do-bash-configuration-files-come-into-picture)
-   - [Commonly Used Bash Configuration Files in Linux](#commonly-used-bash-configuration-files-in-linux)
-     - [`/etc/profile`](#etcprofile)
-     - [`~/.bash_profile` (or `~/.profile`)](#bash_profile-or-profile)
-     - [`~/.bashrc`](#bashrc)
-     - [`/etc/bash.bashrc`](#etcbashbashrc)
-     - [`~/.bash_logout`](#bash_logout)
-   - [Summary of Bash Configuration Files](#summary-of-bash-configuration-files)
-     - [Summary of Common Bash Configuration Files](#summary-of-common-bash-configuration-files)
 
-7. [What is `.bashrc`?](#what-is-bashrc)
-  - [Location](#location)
- - [When is `.bashrc` Loaded?](#when-is-bashrc-loaded)
-   - [Example: Sourcing `.bashrc` from `.bash_profile`](#example-sourcing-bashrc-from-bash_profile)
- - [Purpose and Usage of `.bashrc`](#purpose-and-usage-of-bashrc)
-   - [Setting Environment Variables in `.bashrc`](#setting-environment-variables-in-bashrc)
-   - [Adding Aliases and Functions in `.bashrc`](#adding-aliases-and-functions-in-bashrc)
-   - [Modifying PATH Variable in `.bashrc`](#modifying-path-variable-in-bashrc)
- - [Summary](#summary)
+1. [What is `.bashrc`?](#what-is-bashrc)
+     - [Location](#location)
+    - [When is `.bashrc` Loaded?](#when-is-bashrc-loaded)
+      - [Example: Sourcing `.bashrc` from `.bash_profile`](#example-sourcing-bashrc-from-bash_profile)
+    - [Purpose and Usage of `.bashrc`](#purpose-and-usage-of-bashrc)
+      - [Setting Environment Variables in `.bashrc`](#setting-environment-variables-in-bashrc)
+      - [Adding Aliases and Functions in `.bashrc`](#adding-aliases-and-functions-in-bashrc)
+      - [Modifying PATH Variable in `.bashrc`](#modifying-path-variable-in-bashrc)
+    - [Summary](#summary)
 
-8. [Overview of the Three Files](#overview-of-the-three-files)
+2. [Overview of the Three Files](#overview-of-the-three-files)
    - [`.bashrc`](#bashrc)
    - [`.bash_profile`](#bash_profile)
    - [`.profile`](#profile)
-  - [Key Differences Between `.bashrc`, `.bash_profile`, and `.profile`](#key-differences-between-bashrc-bash_profile-and-profile)
+     - [Key Differences Between `.bashrc`, `.bash_profile`, and `.profile`](#key-differences-between-bashrc-bash_profile-and-profile)
 
-  - [Default Behavior in Different Linux Distributions](#default-behavior-in-different-linux-distributions)
-     - [Ubuntu](#ubuntu)
-     - [CentOS / Red Hat](#centos--red-hat)
-     - [Debian](#debian)
+     - [Default Behavior in Different Linux Distributions](#default-behavior-in-different-linux-distributions)
+        - [Ubuntu](#ubuntu)
+        - [CentOS / Red Hat](#centos--red-hat)
+        - [Debian](#debian)
 
-  - [Practical Examples of Use Cases for Each File](#practical-examples-of-use-cases-for-each-file)
-     - [Use Case for `.bashrc`](#use-case-for-bashrc)
-     - [Use Case for `.bash_profile`](#use-case-for-bash_profile)
-     - [Use Case for `.profile`](#use-case-for-profile)
-
-  - [Summary](#summary)
+     - [Practical Examples of Use Cases for Each File](#practical-examples-of-use-cases-for-each-file)
+        - [Use Case for `.bashrc`](#use-case-for-bashrc)
+        - [Use Case for `.bash_profile`](#use-case-for-bash_profile)
+        - [Use Case for `.profile`](#use-case-for-profile)
+     - [Summary](#summary)
+3. [Customizing the Shell with `.bashrc`](#customizing-the-shell-with-bashrc)
+   - [Adding Aliases](#adding-aliases)
+     - [Example of Adding Aliases](#example-of-adding-aliases)
+     - [Reloading `.bashrc`](#reloading-bashrc)
 
 
 
@@ -638,7 +614,7 @@ The specific Bash configuration file that is sourced depends on the type of shel
     alias ll='ls -l'
     ```
 
-#### 5. ~/.bash_logout
+#### 5. `~/.bash_logout`
 
 - Scope: User-specific.
 - When it's used: Sourced when a login shell exits. It is used to execute commands or clean up after a session ends.
