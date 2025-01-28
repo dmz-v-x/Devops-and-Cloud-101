@@ -59,7 +59,6 @@ GitHub is a cloud-based platform built around Git, providing hosting for Git rep
 - **Open Source Community**: Host public repositories for open-source projects.
 - **Project Management**: Track tasks with GitHub Projects, Issues, and Milestones.
 
-![GitHub Interface](#) <!-- Replace with actual screenshot link -->
 
 ## Differences Between Git and GitHub
 
