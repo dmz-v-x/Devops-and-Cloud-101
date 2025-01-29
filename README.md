@@ -31,7 +31,6 @@ This repository also covers the following AWS topics:
 - VPC
 - EC2
 - Containers and ECS
-- Advanced EC2
 - Route 53
 - Relational Database Service (RDS)
 - Network, Storage, and Data Lifecycle
