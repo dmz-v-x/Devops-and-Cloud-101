@@ -85,6 +85,13 @@
     - [**Terraform Cloud**:](#terraform-cloud-1)
     - [**Self-Managed Terraform**:](#self-managed-terraform)
     - [When to Choose Terraform Cloud Over Self-Managed Terraform:](#when-to-choose-terraform-cloud-over-self-managed-terraform)
+- [Change Management \& Automation in IaC](#change-management--automation-in-iac)
+  - [Change Management in IaC Workflows](#change-management-in-iac-workflows)
+  - [Automating Changes with Terraform](#automating-changes-with-terraform)
+    - [Version Control with Git](#version-control-with-git)
+    - [CI/CD Pipelines](#cicd-pipelines)
+  - [Approval Workflows and Auditing](#approval-workflows-and-auditing)
+  - [Rollback Strategies](#rollback-strategies)
 
 ---
 
@@ -716,3 +723,64 @@ In summary, **Terraform Cloud** is a fully managed platform that simplifies coll
 
 ---
 
+# Change Management & Automation in IaC
+
+## Change Management in IaC Workflows
+
+**Change management** in Infrastructure as Code (IaC) workflows refers to the process of handling and tracking changes to infrastructure in a controlled and predictable way. Since infrastructure is defined and managed as code, making changes to it requires careful planning, testing, and deployment.
+
+In traditional IT environments, change management often involves manual updates and approvals. In contrast, IaC workflows leverage automation tools like Terraform to apply changes to infrastructure efficiently while maintaining traceability, security, and compliance. Change management in IaC typically includes:
+
+- **Version control**: Tracking infrastructure changes through version control systems (e.g., Git).
+- **Approval workflows**: Ensuring that changes are reviewed and approved before being applied to production environments.
+- **Testing**: Validating that infrastructure changes meet the desired outcomes and don’t negatively impact existing resources.
+- **Auditing**: Maintaining an audit trail of changes for compliance and troubleshooting purposes.
+
+By automating much of the change management process, organizations can reduce the risk of human error, accelerate deployment times, and improve overall infrastructure reliability.
+
+## Automating Changes with Terraform
+
+**Automating changes** with Terraform is a key component of modern IaC practices. Terraform allows you to define infrastructure in code, making it easy to automate changes, rollbacks, and updates to your infrastructure.
+
+### Version Control with Git
+
+**Git** plays a crucial role in managing Terraform configurations and automating changes. Storing Terraform code in a version control system (VCS) like Git provides many benefits:
+
+- **History Tracking**: Git allows you to track changes made to your infrastructure code, providing a history of who made what changes and when.
+- **Collaboration**: Git enables teams to collaborate on infrastructure changes, ensuring that changes are reviewed and approved before being applied.
+- **Branching and Merging**: With Git, you can create branches for feature development, bug fixes, or experimentation. Once the changes are validated, they can be merged into the main branch, ready to be applied to production.
+
+By combining **Terraform** with Git, teams can effectively manage their infrastructure as code and integrate it into their overall DevOps workflow.
+
+### CI/CD Pipelines
+
+A **CI/CD pipeline** (Continuous Integration/Continuous Deployment) is a crucial part of automating infrastructure changes with Terraform. A CI/CD pipeline for Terraform typically includes the following stages:
+
+1. **Code Commit**: Developers make changes to the infrastructure code and commit those changes to the Git repository.
+2. **Plan Stage**: A CI pipeline runs `terraform plan` to check if the changes are valid and show what infrastructure changes will be made.
+3. **Approval Stage**: If necessary, the changes are reviewed and approved by a team member before being applied.
+4. **Apply Stage**: The pipeline runs `terraform apply` to implement the changes to the infrastructure.
+5. **Testing and Validation**: Automated tests can be used to ensure that the infrastructure is functioning as expected after the changes.
+
+Using CI/CD pipelines for Terraform enables organizations to automate the entire process of infrastructure management, from code changes to deployment.
+
+## Approval Workflows and Auditing
+
+**Approval workflows** are a critical component of change management in IaC. Before applying changes to production environments, it’s important to ensure that the changes are reviewed and approved by relevant stakeholders. Terraform integrates with various tools (e.g., GitHub Actions, GitLab CI/CD, or Terraform Cloud) to automate approval workflows, ensuring that changes go through the proper review process before they are applied.
+
+**Auditing** is equally important, especially in regulated environments. It involves tracking who made the changes, what changes were made, and why those changes were necessary. Terraform can be integrated with auditing tools that log all Terraform operations, including plan and apply commands, to ensure compliance and traceability. These logs help organizations meet audit requirements and investigate issues after deployment.
+
+## Rollback Strategies
+
+**Rollback strategies** are essential for recovering from failed infrastructure changes or unexpected issues after deployment. When using Terraform, rollback can be achieved in several ways:
+
+- **Manual Rollbacks**: Manually modifying the Terraform configuration to revert the infrastructure to a previous state, followed by running `terraform apply` to apply the changes.
+- **State File Rollbacks**: Terraform’s state file can be used to restore infrastructure to a previous version. If you have stored your state remotely (e.g., in Terraform Cloud, AWS S3), you can restore an earlier state version and reapply it.
+- **Version Control Rollbacks**: If Terraform code is stored in Git, you can roll back to a previous version of the configuration and then reapply it with `terraform apply`.
+- **Automated Rollbacks**: Some organizations implement automated rollback processes within their CI/CD pipelines. If an issue is detected, the pipeline can automatically trigger a rollback using Terraform to revert the changes.
+
+Having a defined rollback strategy ensures that if anything goes wrong, the team can quickly recover and minimize downtime.
+
+---
+
+In summary, **Change Management and Automation in IaC** is crucial for ensuring that infrastructure changes are made in a controlled, secure, and efficient manner. By integrating tools like **Terraform**, **Git**, **CI/CD pipelines**, and **approval workflows**, teams can automate changes, maintain visibility, and mitigate the risks associated with manual infrastructure management. Additionally, implementing strong rollback strategies ensures that organizations can recover from failures and maintain uptime, even when things don’t go as planned.
