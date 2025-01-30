@@ -1,5 +1,9 @@
+# Mastering Cron Jobs in Linux
+
 ## Table of Contents - Mastering Cron Jobs
 
+- [Mastering Cron Jobs in Linux](#mastering-cron-jobs-in-linux)
+  - [Table of Contents - Mastering Cron Jobs](#table-of-contents---mastering-cron-jobs)
 - [Introduction to Cron Jobs](#introduction-to-cron-jobs)
   - [What is a Cron Job?](#what-is-a-cron-job)
     - [Cron and Crontab](#cron-and-crontab)
