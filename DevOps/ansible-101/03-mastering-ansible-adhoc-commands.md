@@ -513,6 +513,9 @@ To save facts in a specific directory for a particular host:
 
     ansible all -m setup -a "filter=ansible_distribution*" --tree /path/to/facts
 
+- filter=ansible_distribution* filters the facts to gather only those facts that start with ansible_distribution.
+
+- --tree /path/to/facts will save the gathered facts to the specified directory /path/to/facts.
 
 This command will collect all the facts and store them in the `/path/to/facts` directory, keeping the data organized.
 
