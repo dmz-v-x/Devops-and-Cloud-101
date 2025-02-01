@@ -1,6 +1,28 @@
 # Working with Branches in Git
 
-## 1. What are Branches in Git?
+## Table of Contents
+- [Working with Branches in Git](#working-with-branches-in-git)
+  - [Table of Contents](#table-of-contents)
+  - [What are Branches in Git?](#what-are-branches-in-git)
+  - [Creating and Switching Branches](#creating-and-switching-branches)
+    - [Creating a New Branch](#creating-a-new-branch)
+    - [Switching Branches](#switching-branches)
+  - [Merging Branches](#merging-branches)
+    - [Understanding Merging](#understanding-merging)
+    - [Performing a Merge](#performing-a-merge)
+    - [Fast-Forward vs. Three-Way Merge](#fast-forward-vs-three-way-merge)
+  - [Deleting Branches](#deleting-branches)
+    - [Deleting a Local Branch](#deleting-a-local-branch)
+    - [Deleting a Remote Branch](#deleting-a-remote-branch)
+  - [Resolving Merge Conflicts](#resolving-merge-conflicts)
+    - [Why Do Conflicts Happen?](#why-do-conflicts-happen)
+    - [Identifying Conflicts](#identifying-conflicts)
+    - [Resolving Conflicts](#resolving-conflicts)
+    - [Using a Merge Tool](#using-a-merge-tool)
+  - [Summary](#summary)
+
+
+## What are Branches in Git?
 A branch in Git represents an independent line of development. It allows multiple developers to work on different features or bug fixes simultaneously without interfering with each other’s code.
 
 Key benefits of using branches:
@@ -13,7 +35,7 @@ By default, Git initializes a repository with a branch called `main` (previously
 
 ---
 
-## 2. Creating and Switching Branches
+## Creating and Switching Branches
 
 ### Creating a New Branch
 To create a new branch, use:
@@ -47,7 +69,7 @@ The current active branch is marked with an asterisk (`*`).
 
 ---
 
-## 3. Merging Branches
+## Merging Branches
 
 ### Understanding Merging
 Merging integrates changes from one branch into another, typically into `main` or `develop`.
@@ -79,7 +101,7 @@ git merge --no-ff feature-branch
 
 ---
 
-## 4. Deleting Branches
+## Deleting Branches
 
 ### Deleting a Local Branch
 After merging, delete a branch locally with:
@@ -109,7 +131,7 @@ git fetch --prune
 
 ---
 
-## 5. Resolving Merge Conflicts
+## Resolving Merge Conflicts
 
 ### Why Do Conflicts Happen?
 Conflicts occur when two branches modify the same line in a file differently.
@@ -148,7 +170,7 @@ git merge --abort
 
 ---
 
-## 6. Summary
+## Summary
 - Git branches enable isolated development.
 - Creating (`git branch`), switching (`git checkout`), and merging (`git merge`) are essential operations.
 - Merging can be fast-forward or three-way, and sometimes conflicts need resolution.
