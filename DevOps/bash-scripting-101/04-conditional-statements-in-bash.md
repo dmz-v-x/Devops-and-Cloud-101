@@ -33,11 +33,13 @@ Conditional statements are fundamental to programming and scripting. They allow 
 The simplest form of a conditional statement checks if a condition is true and executes a block of code accordingly.
 
 Syntax:
+
     if [ condition ]; then
         # Code to execute if condition is true
     fi
 
 Example:
+
     # Check if a file exists
     if [ -f "/path/to/file.txt" ]; then
         echo "File exists."
@@ -47,6 +49,7 @@ Example:
 The `if-else` statement adds an alternative path if the condition is false.
 
 Syntax:
+
     if [ condition ]; then
         # Code if condition is true
     else
@@ -54,6 +57,7 @@ Syntax:
     fi
 
 Example:
+
     # Check if a user is root
     if [ "$(whoami)" = "root" ]; then
         echo "You are root."
@@ -65,6 +69,7 @@ Example:
 Use `elif` to test multiple conditions sequentially.
 
 Syntax:
+
     if [ condition1 ]; then
         # Code if condition1 is true
     elif [ condition2 ]; then
@@ -74,6 +79,7 @@ Syntax:
     fi
 
 Example:
+
     # Grade classification
     read -p "Enter your score: " score
     if [ $score -ge 90 ]; then
@@ -95,12 +101,14 @@ Combine conditions using logical operators:
 - **NOT (`!`)**
 
 Example with `&&`:
+
     # Check if a file exists and is readable
     if [ -f "/path/to/file.txt" ] && [ -r "/path/to/file.txt" ]; then
         echo "File exists and is readable."
     fi
 
 Example with `-o`:
+
     # Check if the number is 10 or 20
     if [ $num -eq 10 -o $num -eq 20 ]; then
         echo "Number is 10 or 20."
@@ -110,6 +118,7 @@ Example with `-o`:
 Conditionals can be nested within each other for complex logic.
 
 Example:
+
     # Check if a user is an admin and has write access
     if [ "$role" = "admin" ]; then
         if [ -w "/var/log" ]; then
@@ -121,6 +130,7 @@ Example:
 The `case` statement simplifies multi-condition checks by matching patterns.
 
 Syntax:
+
     case "$variable" in
         pattern1)
             # Code for pattern1
@@ -134,6 +144,7 @@ Syntax:
     esac
 
 Example:
+
     # Handle user input
     read -p "Enter yes/no: " choice
     case "$choice" in
@@ -155,6 +166,7 @@ Example:
 1. **Use Double Brackets for Advanced Tests**
    Prefer `[[ ]]` over `[ ]` for string comparisons and regex matching.
    Example:
+
         if [[ "$str" == *"linux"* ]]; then
             echo "String contains 'linux'."
         fi
@@ -162,6 +174,7 @@ Example:
 2. **Quote Variables to Prevent Errors**
    Always quote variables to handle spaces or special characters.
    Example:
+
         if [ "$var" = "value" ]; then
 
 3. **Use Indentation for Readability**
@@ -170,6 +183,7 @@ Example:
 4. **Check Command Success**
    Use `$?` to check the exit status of a command.
    Example:
+
         grep "error" /var/log/syslog
         if [ $? -eq 0 ]; then
             echo "Errors found in syslog."
@@ -180,6 +194,7 @@ Example:
 ## Practical Examples
 
 ### Example 1: File Backup Script
+
     #!/bin/bash
     backup_dir="/backup"
     if [ ! -d "$backup_dir" ]; then
@@ -190,6 +205,7 @@ Example:
     fi
 
 ### Example 2: User Input Validation
+
     #!/bin/bash
     read -p "Enter a number (1-5): " num
     if [[ "$num" =~ ^[1-5]$ ]]; then
@@ -199,6 +215,7 @@ Example:
     fi
 
 ### Example 3: System Monitoring
+
     #!/bin/bash
     cpu_load=$(uptime | awk '{print $10}')
     if (( $(echo "$cpu_load > 5.0" | bc -l) )); then
